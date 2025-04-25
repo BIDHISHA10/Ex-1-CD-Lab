@@ -18,6 +18,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+
 #define MAX_EXPRESSION_SIZE 100
 
 int main() {
@@ -34,7 +35,7 @@ int main() {
     printf("\nGiven Expression: %s\n", b);
 
     printf("\nSymbol Table\n");
-    printf("Symbol\tType\n");
+    printf("Symbol\tType\t\tAddress\n");
 
     for (j = 0; j <= n; j++) {
         c = b[j];
@@ -49,11 +50,13 @@ int main() {
 
             if (!alreadyExists) {
                 d[x] = c;
-                printf("%c\tidentifier\n", c);
+                printf("%c\tidentifier\t%p\n", c, (void*)&d[x]);
                 x++;
             }
         }
     }
+
+    // Clear input buffer
     while ((c = getchar()) != '\n' && c != EOF);
 
     printf("\nEnter the symbol to search: ");
@@ -71,13 +74,16 @@ int main() {
 
     return 0;
 }
+
 ```
 # OUTPUT
+# symbol found
+![Screenshot 2025-04-25 152749](https://github.com/user-attachments/assets/781b22f3-81f9-474c-9253-358f1af441e2)
 
-![Screenshot 2025-04-11 160957](https://github.com/user-attachments/assets/eabcb6b6-c601-449f-86ee-d2f13ba42768)
 
+# symbol not found
+![Screenshot 2025-04-25 152822](https://github.com/user-attachments/assets/90d155bc-01b3-4846-8418-74aab5443239)
 
-![Screenshot 2025-04-11 161057](https://github.com/user-attachments/assets/7eb31bc9-6b3b-4574-88a1-ac115f97f427)
 
 
 # RESULT
